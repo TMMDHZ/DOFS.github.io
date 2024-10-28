@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DOFS: A Real-world 3D Deformable Object Dataset with Full Spatial Information for Dynamics Model Learning">
+  <meta name="keywords" content="Deformable Object Manipulation, Data Collection, State Representation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DOFS: A Real-world 3D Deformable Object Dataset with Full Spatial Information for Dynamics Model Learning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css"> -->
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <!-- <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script> -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+  
+  <style>
+    .container-mesh {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .responsive-iframe-mesh {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+  
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DOFS: A Real-world 3D Deformable Object Dataset with Full Spatial Information for Dynamics Model Learning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Zhen Zhang</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://xiangyuchu03.github.io">Xiangyu Chu</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://ieeexplore.ieee.org/author/37088920411">Yunxi Tang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www4.mae.cuhk.edu.hk/peoples/au-kwok-wai-samuel/">K. W. Samuel Au</a><sup>1,2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The Chinese University of Hong Kong,</span>
+            <span class="author-block"><sup>2</sup>Multi-scale Medical Robotics Center</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="xxxxxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="xxxxxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="xxxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>CADs</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work proposes DOFS, a pilot dataset of 3D deformable objects (DOs) (e.g., elasto-plastic objects) 
+            with full spatial information (i.e., top, side, and bottom information) using a 
+            novel and low-cost data collection platform with a transparent operating plane.
+          </p>
+          <p>
+            The dataset consists of active manipulation action,
+            multi-view RGB-D images, well-registered point clouds, 3D deformed mesh, and
+            3D occupancy with semantics, using a pinching strategy with a two-parallel-finger
+            gripper. In addition, we trained a neural network with the down-sampled 3d occu-
+            pancy and action as input to model the dynamics of an elasto-plastic object. Our
+            dataset and all CADs will be released soon.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Why Full-Spatial Information? </h2>
+        <div class="content has-text-justified">         
+            <p>
+              The dynamics of DO (i.e., Plasticine) will perform dramatically differently due to the hollow bottom. 
+              For two pieces of plasticine of the same appearance and size, one is solid and another is hollow, the deformation results are completely
+              different with the same action.
+            </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div style="width: 80%; justify-content: center; align-items: center; margin: auto; text-align: center;">
+          <img src="./static/images/hollow.png" style="width:100%; object-fit: cover; object-position: bottom ;" />
+        </div>
+       
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="hero teaser"></section>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      
+      <div class="columns is-centered">
+      <div class="column has-text-centered">
+
+        <h2 class="title is-3">Hardware Setup</h2>   
+        <div style="width: 60%; justify-content: center; align-items: center; margin: auto; text-align: center;">
+          <img src="./static/images/platform-2.png" style="width:100%; object-fit: cover; object-position: bottom ;" />
+        </div>
+        <div class="content has-text-centered">          
+          <p>
+            Hardware setup of our data collection platform. The blue part is a transparent acrylic
+            board that serves as an operating plane. The orange parts are 4 cameras above the plane to collect
+            top and side information. The green parts are 2 cameras below the plane to collect bottom-side
+            information.
+          </p>
+        </div>   
+        <div style="width: 60%; justify-content: center; align-items: center; margin: auto; text-align: center;">
+          <img src="./static/images/datasets.png" style="width:100%; object-fit: cover; object-position: bottom ;" />
+        </div>
+        <div class="content has-text-centered">          
+          <p>
+            Six RGB-D images captured from RealSense D435i. Four images from the cameras
+            installed above the operating plane show the top and side information of the plasticine. Two images
+            from the cameras installed below the operating plane show the bottom side information of the plas-
+            ticine.
+          </p>
+        </div>        
+
+      </div>
+      </div>
+      
+    </div>          
+    </div>
+  </div>
+</section>
+
+<!-- full spatial information visualization-->
+<section class="hero teaser"></section>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      
+      <div class="columns is-centered">
+      <div class="column has-text-centered">
+
+        <h2 class="title is-3">Dataset Visulaization Results</h2>   
+        <div style="width: 80%; justify-content: center; align-items: center; margin: auto; text-align: center;">
+          <img src="./static/images/dataprocess.png" style="width:100%; object-fit: cover; object-position: bottom ;" />
+        </div>
+        <div class="content has-text-centered">          
+          <p>
+            Data visualization of one frame during manipulation. (a): Well-registered point cloud of pinched 
+            plasticine without background. (b): Reconstructed deformed mesh. (c): 3D occupancy of plasticine.
+          </p>
+        </div>   
+        <div style="width: 80%; justify-content: center; align-items: center; margin: auto; text-align: center;">
+          <img src="./static/images/cuhk.png" style="width:100%; object-fit: cover; object-position: bottom ;" />
+        </div>
+        <div class="content has-text-centered">          
+          <p>
+            Visualization of Full spatial information collection. (a): We embed the cartoon model into the bottom of the 
+            plasticine and take it out. (b): The visualization of the point cloud of plasticine. (c): The deformed mesh of plasticine.
+          </p>
+        </div>           
+      </div>
+      </div>
+      
+    </div>          
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser"></section>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      
+      <div class="columns is-centered">
+      <div class="column has-text-centered">
+
+        <h2 class="title is-3">Learned Dynamics Model</h2>   
+        <div style="width: 60%; justify-content: center; align-items: center; margin: auto; text-align: center;">
+          <img src="./static/images/dynamic.png" style="width:100%; object-fit: cover; object-position: bottom ;" />
+        </div>
+        <div class="content has-text-centered">          
+          <p>
+            State transformation after pinching the plasticine. (a): Visualization of the initial state
+            of the plasticine and two fingers, the yellow arrow indicates the pinch direction. (b): The ground-
+            truth state after the pinch. (c): The inference state of the learned dynamics model.
+          </p>
+        </div>            
+
+      </div>
+      </div>
+      
+    </div>          
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{
+      anonymous2024dofs,
+      title={{DOFS}: A Real-world 3D Deformable Object Dataset with Full Spatial Information for Dynamics Model Learning},
+      author={Anonymous},
+      booktitle={CoRL Workshop on Learning Robot Fine and Dexterous Manipulation: Perception and Control},
+      year={2024},
+      url={https://openreview.net/forum?id=QADznDlGM4}
+      }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            The website <a href="https://github.com/TMMDHZ/DOFS.github.io.git">(source code)</a> design was adapted from  <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
